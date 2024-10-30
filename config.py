@@ -1,6 +1,10 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+class Config:
+    SQLALCHEMY_DATABASE_URI = f"postgresql+psycopg://postgres:postgres@localhost:5432/sa"
+
+
 class Settings(BaseSettings):
     DB_HOST: str
     DB_PORT: int
@@ -21,4 +25,4 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env")
 
 
-settings = Settings()  # type: ignore
+# settings = Settings()  # type: ignore

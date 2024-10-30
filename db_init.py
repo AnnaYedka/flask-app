@@ -32,7 +32,8 @@ def create_tables(metadata_obj=None):
     # metadata_obj.drop_all(sync_engine)
     # metadata_obj.create_all(sync_engine)
     # sync_engine.echo = True
-    Base.metadata.create_all(sync_engine)
+    # Base.metadata.create_all(sync_engine)
+    Base.metadata.drop_all(sync_engine)
 
 if __name__ == "__main__":
     create_tables()
