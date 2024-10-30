@@ -1,8 +1,10 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
 
 
 class Config:
     SQLALCHEMY_DATABASE_URI = f"postgresql+psycopg://postgres:postgres@localhost:5432/sa"
+    SECRET_KEY = os.environ.get('SECRET_KEY') or "secret-key"
 
 
 class Settings(BaseSettings):

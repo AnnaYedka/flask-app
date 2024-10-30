@@ -10,5 +10,19 @@
         <li>{{ i.name }}</li>
     {% endfor %}
 </ul>
+<form method="post">
+    <div>
+        {{ form.csrf_token }}
+        {{ form.name.label }}
+        {{ form.name }}
+    </div>
+
+    <div>
+        {{ form.is_allergen.label }}
+        {{ form.is_allergen }}
+    </div>
+
+    {{ form.save() }}
+</form>
 </body>
 </html>

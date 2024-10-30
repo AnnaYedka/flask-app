@@ -1,11 +1,17 @@
 from . import bp
-from flask import render_template
+from flask import render_template, redirect, url_for
 from app import db
 from models import Ingredient
 from typing import List
+from .form import IngredientForm
 
 
-@bp.route('/')
+@bp.route('/', methods=['GET', 'POST'])
 def index():
+	form = IngredientForm()
+	if form.validate_on_submit():
+		db.session.add(Ingredient(name=form.name.data, is_allergen=form.is_allergen.data))
+		db.session.commit()
+		return redirect(url_for('.index'))
 	ingredients: List[Ingredient] = db.session.query(Ingredient).all()
-	return render_template('ingredient/index.html', ingredients=ingredients)
+	return render_template('ingredient/index.html', ingredients=ingredients, form=form)
