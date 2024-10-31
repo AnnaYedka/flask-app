@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }}</title>
+      {% else %}
+      <title>App</title>
+      {% endif %}
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+    <div>
+            {% if not current_user %}
+            <a href="{{ url_for('auth.login') }}">Login</a>
+            {% else %}
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+            {% endif %}
+        </div>
+    </body>
+</html>

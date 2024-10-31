@@ -1,28 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ingredients</title>
-</head>
-<body>
-<ul>
-    {% for i in ingredients %}
-        <li>{{ i.name }}</li>
-    {% endfor %}
-</ul>
-<form method="post">
-    <div>
-        {{ form.csrf_token }}
-        {{ form.name.label }}
-        {{ form.name }}
-    </div>
+{% extends "base.html" %}
+{% block content %}
+    <ul>
+        {% for i in ingredients %}
+            <li>{{ i.name }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post">
+        <div>
+            {{ form.csrf_token }}
+            {{ form.name.label }}
+            {{ form.name }}
+        </div>
 
-    <div>
-        {{ form.is_allergen.label }}
-        {{ form.is_allergen }}
-    </div>
+        <div>
+            {{ form.is_allergen.label }}
+            {{ form.is_allergen }}
+        </div>
 
-    {{ form.save() }}
-</form>
-</body>
-</html>
+        {{ form.save() }}
+    </form>
+{% endblock %}

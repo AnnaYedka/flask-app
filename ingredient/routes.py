@@ -4,6 +4,8 @@ from app import db
 from models import Ingredient
 from typing import List
 from .form import IngredientForm
+from flask_login import login_required
+from auth import admin_required
 
 
 @bp.route('/', methods=['GET', 'POST'])
@@ -15,3 +17,10 @@ def index():
 		return redirect(url_for('.index'))
 	ingredients: List[Ingredient] = db.session.query(Ingredient).all()
 	return render_template('ingredient/index.html', ingredients=ingredients, form=form)
+
+
+@bp.route('/protected_view')
+@login_required
+@admin_required
+def protected_view():
+	return 'logged in'
