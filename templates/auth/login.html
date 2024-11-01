@@ -12,7 +12,12 @@
             {{ form.password.label }}<br>
             {{ form.password(size=32) }}
         </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
+        <div>
+            <label>
+                {{ form.remember_me(class='filled-in') }}
+                <span>{{ form.remember_me.label }}</span>
+            </label>
+        </div>
+        {{ form.submit(class='waves-effect waves-light btn-small orange accent-2') }}
     </form>
 {% endblock %}

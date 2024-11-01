@@ -1,20 +1,30 @@
 <!doctype html>
 <html>
-    <head>
-      {% if title %}
-      <title>{{ title }}</title>
-      {% else %}
-      <title>App</title>
-      {% endif %}
-    </head>
-    <body>
-        {% block content %}{% endblock %}
-    <div>
-            {% if not current_user %}
-            <a href="{{ url_for('auth.login') }}">Login</a>
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="../static/css/materialize.min.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../static/css/style.css" media="screen,projection"/>
+
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>App</title>
+    {% endif %}
+</head>
+<body>
+<nav>
+    <div class="nav-wrapper orange darken-4">
+        <ul class="right">
+            <li>{% if current_user.is_anonymous %}
+                <a href="{{ url_for('auth.login') }}">Login</a>
             {% else %}
-            <a href="{{ url_for('auth.logout') }}">Logout</a>
-            {% endif %}
-        </div>
-    </body>
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
+            {% endif %}</li>
+        </ul>
+    </div>
+</nav>
+
+{% block content %}{% endblock %}
+<script type="text/javascript" src="../static/js/materialize.min.js"></script>
+</body>
 </html>

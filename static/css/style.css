@@ -1,0 +1,14 @@
+.btn-small > *{
+    color: white;
+}
+.btn-small {
+    margin: 1rem 0;
+}
+
+form {
+    margin: 1rem;
+}
+
+.ingredient-list {
+    max-width: 400px;
+}
