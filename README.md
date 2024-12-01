@@ -65,6 +65,7 @@
   - amount INTEGER NN
 
 
+
 9. `Ingredient`
   - id BIGSERIAL PRIMARY KEY NN
   - product_name VARCHAR(50) UQ NN
@@ -76,4 +77,4 @@
   - FOREIGN KEY ingredient_id REFERENCES Ingredient(id) NN
   - amount INTEGER NN
 
-![db.pdf](https://github.com/AnnaYedka/db/files/12793723/db.pdf)
+[db_new-2.pdf](https://github.com/user-attachments/files/17970116/db_new-2.pdf)
